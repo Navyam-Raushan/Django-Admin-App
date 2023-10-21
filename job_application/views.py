@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import ApplicationForm
 from .models import Form
+from django.contrib import messages
 
 
 # Create your views here.
@@ -19,10 +20,15 @@ def index(request):
             email = form.cleaned_data["email"]
             date = form.cleaned_data["date"]
             occupation = form.cleaned_data["occupation"]
+
+            # Adding values to the database.
             Form.objects.create(first_name=first_name, last_name=last_name,
                                 email=email, start_date=date,
                                 occupation=occupation)
             print(first_name)
             print(last_name)
+
+            # Displaying messages from django.messages (green color is due to
+            messages.success(request, message="Form is submitted successfully")
 
     return render(request, "index.html")
