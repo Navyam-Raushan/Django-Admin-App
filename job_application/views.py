@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import ApplicationForm
 from .models import Form
 from django.contrib import messages
+from django.core.mail import EmailMessage
 
 
 # Create your views here.
@@ -27,6 +28,25 @@ def index(request):
                                 occupation=occupation)
             print(first_name)
             print(last_name)
+
+            # Sending Email
+
+            # Format for EmailMessage class
+            # send_mail(
+            #     'Subject here',
+            #     'Here is the message.',
+            #     'from@example.com',
+            #     ['to@example.com'],
+            #     fail_silently=False,
+            # )
+            body = f"{first_name}, Thanks for showing interest \n" \
+                   f"We received your Application Form.\n" \
+                   f"Thanks."
+            email_message = EmailMessage("Form submission confirmation",
+                                         body=body, to=[email]
+                                         )
+
+            email_message.send()
 
             # Displaying messages from django.messages (green color is due to
             messages.success(request, message="Form is submitted successfully")
