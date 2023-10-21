@@ -24,4 +24,10 @@ python manage.py migrate (Execution of makemigration file)
 If you need to change anything in database change to our code
 Run above commands again to alter database.
 
+To add the html pages
+1.Go to job_application-> views.py-> write the function
+2. Go to job_application-> urls.py-> connect this function as pathurls
+3. Add your url to mysite.urls.py-> need to include job_application.urls file.
+
+
 
