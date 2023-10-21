@@ -1,0 +1,27 @@
+python manage.py runserver
+here manage.py is the name of file and run server will run the server
+
+python manage.py startapp job_application
+startapp is a command to start the app and job_application is the name of our project
+
+one django project may have more than one app
+
+steps--
+django-admin startproject mysite .   (first step to initiate the project configuration files)
+python manage.py startapp job_application (second step with your app name)
+
+Go to mysite->settings.py and then in class of installed apps list the name of your app(no typos)
+
+python manage.py runserver (final command to run the server)
+
+Where to Write my code-->
+Go to job_application-> models.py -> Add Your Model as a class
+
+How to connect to our Database ---->
+python manage.py makemigrations (Connection to our database)
+python manage.py migrate (Execution of makemigration file)
+
+If you need to change anything in database change to our code
+Run above commands again to alter database.
+
+
