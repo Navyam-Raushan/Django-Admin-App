@@ -52,3 +52,8 @@ def index(request):
             messages.success(request, message="Form is submitted successfully")
 
     return render(request, "index.html")
+
+
+# To add a new page create its method and add it to the urls.py of job_application.
+def about(request):
+    return render(request, template_name="about.html")
